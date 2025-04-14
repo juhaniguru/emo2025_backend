@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from sqlalchemy import Column, DateTime, Float, ForeignKeyConstraint, Index, String, Text
+from sqlalchemy import Column, DateTime, Float, ForeignKeyConstraint, Index, String, Text, LargeBinary
 from sqlalchemy.dialects.mysql import INTEGER
 from sqlalchemy.orm import Mapped, declarative_base, mapped_column, relationship
 from sqlalchemy.orm.base import Mapped
@@ -29,7 +29,7 @@ class User(Base):
 
     id = mapped_column(INTEGER(11), primary_key=True)
     username = mapped_column(String(255), nullable=False)
-    password = mapped_column(String(255), nullable=False)
+    password = mapped_column(LargeBinary, nullable=False)
     role = mapped_column(String(45), nullable=False)
 
     rating: Mapped[List['Rating']] = relationship('Rating', uselist=True, back_populates='user')
