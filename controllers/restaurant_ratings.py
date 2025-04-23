@@ -19,7 +19,7 @@ async def get_restaurants_ratings(service: RestaurantService):
     return service.get_restaurants_ratings()
 
 @router.get("/{resid}")
-async def get_restaurant_ratings(resid: int, service: RestaurantService):
+async def get_restaurant(resid: int, service: RestaurantService):
 
     """
     Get one restaurant by its primary key value
